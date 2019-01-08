@@ -1,12 +1,22 @@
 {
+  "scripts": {
+    "build": "cordova prepare && cordova build browser",
+    "start": "node index.js"
+  },
   "cordova": {
     "platforms": [
       "browser"
     ],
-    "plugins": {}
+    "plugins": {
+      "cordova-plugin-whitelist": {}
+    }
   },
   "dependencies": {
     "cordova": "^8.1.2",
-    "cordova-browser": "^5.0.4"
+    "cordova-browser": "^5.0.4",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "express": "^4.16.4",
+    "path": "^0.12.7",
+    "whitelist": "^1.0.2"
   }
 }
