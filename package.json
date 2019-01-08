@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "webpack": "cd webpack && yarn build",
+    "webpack": "cd webpack && yarn install && yarn build",
     "cordova": "cordova prepare && cordova build browser",
     "start": "npm run webpack && npm run cordova && node server.js"
   },
