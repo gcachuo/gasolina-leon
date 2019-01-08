@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "build": "cordova prepare && cordova build browser",
-    "start": "node index.js"
+    "webpack": "cd webpack && yarn build",
+    "cordova": "cordova prepare && cordova build browser",
+    "start": "npm run webpack && npm run cordova && node server.js"
   },
   "cordova": {
     "platforms": [

@@ -1,4 +1,0 @@
-RewriteEngine on
-
-RewriteCond %{REQUEST_URI} !build/browser/www
-RewriteRule ^(.*)$ build/browser/www
