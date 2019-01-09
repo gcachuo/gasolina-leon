@@ -10,14 +10,14 @@ const
     },
     zoom = 13,
     icon = {
-        activo: {
+        1: {
             url: 'assets/dist/img/icon-station-active.png',
             size: {
                 width: 30,
                 height: 30
             }
         },
-        inactivo: {
+        0: {
             url: 'assets/dist/img/icon-station-inactive.png',
             size: {
                 width: 30,
@@ -51,8 +51,8 @@ Project.Maps = {
     onMapInit: function (map) {
         Project.Maps.addMarkers(map);
     },
-    addMarkers: function (map) {
-        var data = Project.Maps.getMarkers();
+    addMarkers: async function (map) {
+        var data = await Project.Maps.getMarkers();
         // Add markers
         data.map(function (options) {
             return map.addMarker(options);
@@ -65,21 +65,18 @@ Project.Maps = {
             'title': "Hello GoogleMap for Cordova!"
         });
     },
-    getMarkers: function () {
-        let markers = [
-            {
-                icon: icon.activo,
-                snippet: "SI hay",
-                position: {lat: 21.1413763, lng: -101.6602022},
-                title: "Oxxo Gas"
-            },
-            {
-                icon: icon.inactivo,
-                snippet: "NO hay",
-                position: {lat: 21.1439166, lng: -101.6586434},
-                title: "Pemex"
-            }
-        ];
+    getMarkers: async function () {
+        let markers = [];
+        const response = (await Project.request('maps/getData')).response;
+        $.each(response.data, function (i, marker) {
+            console.log(marker);
+            markers.push({
+                icon: icon[marker.active],
+                snippet: {1: "SI hay", 0: 'NO hay'}[marker.active],
+                position: {lat: marker.position.lat, lng: marker.position.lng},
+                title: marker.company
+            });
+        });
         return markers;
     }
 };

@@ -1,5 +1,6 @@
 $ = JQuery = require('jquery');
 Mustache = require('mustache');
+toastr = require('toastr');
 Project = require('./js/project.js');
 require('./scss/main.scss');
 

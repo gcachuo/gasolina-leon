@@ -1,5 +1,5 @@
 const host = 'https://gasolina-leon-api.herokuapp.com/';
-const api = '/';
+const api = '';
 const init = function () {
     Project.navigate(Project.getCookie('page') || 'dashboard');
 };
