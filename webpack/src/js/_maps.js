@@ -66,7 +66,7 @@ Project.Maps = {
                 icon: icon[marker.active],
                 snippet: {1: "SI hay", 0: 'NO hay'}[marker.active],
                 position: {lat: marker.position.lat, lng: marker.position.lng},
-                title: marker.company
+                title: [marker.name, marker.company].join("\n - ")
             });
         });
         return markers;
