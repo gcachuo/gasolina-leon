@@ -10,9 +10,7 @@
     "jquery": "^3.3.1",
     "mustache": "^3.0.1",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1"
-  },
-  "devDependencies": {
+    "style-loader": "^0.23.1",
     "copy-webpack-plugin": "^4.6.0",
     "extract-text-webpack-plugin": "^4.0.0-alpha.0",
     "webpack": "^4.28.1",
