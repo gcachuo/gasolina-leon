@@ -8,7 +8,7 @@ const
         lat: 21.1228352,
         lng: -101.6755628
     },
-    zoom = 14,
+    zoom = 13,
     icon = {
         1: {
             url: 'assets/dist/img/icon-station-active.png',
