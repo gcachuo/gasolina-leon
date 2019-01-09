@@ -58,18 +58,10 @@ Project.Maps = {
             return map.addMarker(options);
         });
     },
-    addMarker: function (map) {
-        // Add a marker
-        map.addMarker({
-            'position': target,
-            'title': "Hello GoogleMap for Cordova!"
-        });
-    },
     getMarkers: async function () {
         let markers = [];
         const response = (await Project.request('maps/getData')).response;
         $.each(response.data, function (i, marker) {
-            console.log(marker);
             markers.push({
                 icon: icon[marker.active],
                 snippet: {1: "SI hay", 0: 'NO hay'}[marker.active],
