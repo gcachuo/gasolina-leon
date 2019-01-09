@@ -10,12 +10,17 @@
       "browser"
     ],
     "plugins": {
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-googlemaps": {
+        "API_KEY_FOR_ANDROID": "AIzaSyD4PXcR06qMI_9Xcf81WI1UVp_3IoT_8-U",
+        "API_KEY_FOR_IOS": "AIzaSyD4PXcR06qMI_9Xcf81WI1UVp_3IoT_8-U"
+      }
     }
   },
   "dependencies": {
     "cordova": "^8.1.2",
     "cordova-browser": "^5.0.4",
+    "cordova-plugin-googlemaps": "^2.4.6",
     "cordova-plugin-whitelist": "^1.3.3",
     "express": "^4.16.4",
     "path": "^0.12.7"
