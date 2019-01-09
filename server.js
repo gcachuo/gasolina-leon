@@ -1,3 +1,4 @@
+// AdMob = require('/node_modules/cordova-plugin-admob-free/');
 var express = require('express');
 var path = require('path');
 var app = express();

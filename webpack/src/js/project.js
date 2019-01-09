@@ -6,6 +6,7 @@ const init = function () {
 const load = function () {
     document.addEventListener("deviceready", function() {
        Project.Maps.init();
+       Project.Ads.init();
     });
 };
 
