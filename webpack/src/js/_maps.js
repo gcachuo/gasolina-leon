@@ -8,7 +8,7 @@ const
         lat: 21.1228352,
         lng: -101.6755628
     },
-    zoom = 13,
+    zoom = 14,
     icon = {
         1: {
             url: 'assets/dist/img/icon-station-active.png',
@@ -35,15 +35,13 @@ Project.Maps = {
         // Define a div tag with id="map_canvas"
         var mapDiv = $("#map_canvas").get()[0];
 
-        var options = {
+        // Initialize the map plugin
+        var map = plugin.google.maps.Map.getMap(mapDiv, {
             camera: {
                 target: target,
                 zoom: zoom
             }
-        };
-
-        // Initialize the map plugin
-        var map = plugin.google.maps.Map.getMap(mapDiv, options);
+        });
 
         // The MAP_READY event notifies the native map view is fully ready to use.
         map.one(plugin.google.maps.event.MAP_READY, this.onMapInit);
@@ -52,6 +50,9 @@ Project.Maps = {
             enableHighAccuracy: true // use GPS as much as possible
         }, function (location) {
             Project.Maps.addMarker(map, location.latLng);
+            map.moveCamera({
+                target: location.latLng
+            });
         });
     },
     onMapInit: function (map) {
