@@ -1,7 +1,11 @@
 Project.Maps = {
     init: function () {
+        plugin.google.maps.environment.setEnv({
+            'API_KEY_FOR_BROWSER_RELEASE': 'AIzaSyBFMFeQ5dKQYaILCAY0kxoACcftBHlsjfI',
+            'API_KEY_FOR_BROWSER_DEBUG': 'AIzaSyBQg1lHyydFoB2Sxwud1GgIQTFnXzaO_wg'
+        });
         // Define a div tag with id="map_canvas"
-        var mapDiv = document.getElementById("map_canvas");
+        var mapDiv = $("#map_canvas").get()[0];
 
         // Initialize the map plugin
         var map = plugin.google.maps.Map.getMap(mapDiv);
