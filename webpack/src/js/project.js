@@ -1,10 +1,12 @@
 const host = 'https://gasolina-leon-api.herokuapp.com/';
-const api = '/';
+const api = '';
 const init = function () {
     Project.navigate(Project.getCookie('page') || 'dashboard');
 };
 const load = function () {
-
+    document.addEventListener("deviceready", function() {
+       Project.Maps.init();
+    });
 };
 
 const Project = {
