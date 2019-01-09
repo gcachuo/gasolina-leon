@@ -61,8 +61,7 @@ Project.Maps = {
     addMarker: function (map, position) {
         var marker = map.addMarker({
             position: position,
-            title: "Hello Cordova Google Maps for iOS and Android",
-            snippet: "This plugin is awesome!"
+            title: "Estas Aquí"
         })
     },
     addMarkers: async function (map) {
