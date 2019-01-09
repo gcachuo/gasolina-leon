@@ -77,9 +77,9 @@ Project.Maps = {
         $.each(response.data, function (i, marker) {
             markers.push({
                 icon: icon[marker.active],
-                snippet: {1: "SI hay", 0: 'NO hay'}[marker.active],
                 position: {lat: marker.position.lat, lng: marker.position.lng},
-                title: [marker.name, marker.company].join("\n - ")
+                title: [marker.id, marker.name].join(" - "),
+                snippet: [marker.company, {1: "SI hay", 0: 'NO hay'}[marker.active]].join(" - ")
             });
         });
         return markers;
