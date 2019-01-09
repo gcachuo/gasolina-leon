@@ -8,3 +8,4 @@ require('./img/logo.png');
 require('./img/icon-station-active.png');
 require('./img/icon-station-inactive.png');
 require('./js/_maps');
+require('./js/_firebase');
