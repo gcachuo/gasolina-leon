@@ -47,9 +47,23 @@ Project.Maps = {
 
         // The MAP_READY event notifies the native map view is fully ready to use.
         map.one(plugin.google.maps.event.MAP_READY, this.onMapInit);
+
+        plugin.google.maps.LocationService.getMyLocation({
+            enableHighAccuracy: true // use GPS as much as possible
+        }, function (location) {
+            console.log(location);
+            Project.Maps.addMarker(map, location.latLng);
+        });
     },
     onMapInit: function (map) {
         Project.Maps.addMarkers(map);
+    },
+    addMarker: function (map, position) {
+        var marker = map.addMarker({
+            position: position,
+            title: "Hello Cordova Google Maps for iOS and Android",
+            snippet: "This plugin is awesome!"
+        })
     },
     addMarkers: async function (map) {
         var data = await Project.Maps.getMarkers();
