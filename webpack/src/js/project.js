@@ -4,9 +4,10 @@ const init = function () {
     Project.navigate(Project.getCookie('page') || 'dashboard');
 };
 const load = function () {
+    Project.Firebase.init();
+
     document.addEventListener("deviceready", function() {
        Project.Maps.init();
-       Project.Firebase.init();
     });
 };
 
