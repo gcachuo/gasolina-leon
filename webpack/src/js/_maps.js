@@ -51,7 +51,6 @@ Project.Maps = {
         plugin.google.maps.LocationService.getMyLocation({
             enableHighAccuracy: true // use GPS as much as possible
         }, function (location) {
-            console.log(location);
             Project.Maps.addMarker(map, location.latLng);
         });
     },
@@ -59,7 +58,7 @@ Project.Maps = {
         Project.Maps.addMarkers(map);
     },
     addMarker: function (map, position) {
-        var marker = map.addMarker({
+        map.addMarker({
             position: position,
             title: "Estas Aquí"
         })
