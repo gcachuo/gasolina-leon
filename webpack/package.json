@@ -16,6 +16,7 @@
     "node-sass": "^4.11.0",
     "popper.js": "^1.14.6",
     "sass-loader": "^7.1.0",
+    "simpler-sidebar": "^2.2.5",
     "style-loader": "^0.23.1",
     "toastr": "^2.1.4",
     "webpack": "^4.28.1",

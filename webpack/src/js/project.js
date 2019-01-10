@@ -6,8 +6,15 @@ const init = function () {
 const load = function () {
     Project.Firebase.init();
 
-    document.addEventListener("deviceready", function() {
-       Project.Maps.init();
+    document.addEventListener("deviceready", function () {
+        Project.Maps.init();
+    });
+    $("#sidebar").simplerSidebar({
+        align: "left",
+        selectors: {
+            trigger: ".toggle-sidebar",
+            quitter: "close-sidebar"
+        }
     });
 };
 

@@ -2,6 +2,7 @@ $ = JQuery = require('jquery');
 require('bootstrap');
 Mustache = require('mustache');
 toastr = require('toastr');
+require('simpler-sidebar');
 Project = require('./js/project.js');
 require('./scss/main.scss');
 require('./img/logo.png');
