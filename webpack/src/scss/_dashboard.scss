@@ -8,3 +8,15 @@ div.parent-map {
   height: calc(100% - 100px);
   padding: 0 0 0 0;
 }
+
+.list-group-item.active {
+  background-color: #558b2f;
+  border-color: #558b2f;
+  color: white;
+}
+
+.list-group-item.inactive {
+  background-color: #a52714;
+  border-color: #a52714;
+  color: white;
+}
