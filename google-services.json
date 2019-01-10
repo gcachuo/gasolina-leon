@@ -1,0 +1,43 @@
+{
+  "project_info": {
+    "project_number": "469170021767",
+    "firebase_url": "https://gasolina-leon-1546993920228.firebaseio.com",
+    "project_id": "gasolina-leon-1546993920228",
+    "storage_bucket": "gasolina-leon-1546993920228.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:469170021767:android:c23d065d017c3268",
+        "android_client_info": {
+          "package_name": "com.cachu.gasolinaleon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "469170021767-pqu3qgsjqf8uqp9f92kbnt7iv7f7c3ms.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMwrjIsELpQZjTTuyKLIy1FhwEscBRumI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      },
+      "admob_app_id": "ca-app-pub-7188928306688349~6128351932"
+    }
+  ],
+  "configuration_version": "1"
+}

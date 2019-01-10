@@ -1,16 +1,44 @@
 <html>
 <head>
-    <title>Gasolina León</title>
+    <title>Gasolina 2019</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     <link rel="icon" href="assets/dist/img/logo.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/dist/index.css">
 </head>
 <body>
-<div class="app container-fluid p-4">
+<header class="navbar">
+    <button class="toggle-sidebar btn btn-toolbar btn-light"><i class="material-icons">menu</i></button>
+    <span>Gasolina 2019</span>
+</header>
+<div id="sidebar">
+    <div id="sidebar-wrapper" class="sidebar-wrapper">
+        <ul class="list-group" id="markers-list">
+
+        </ul>
+    </div>
+</div>
+<div class="app container-fluid">
 
 </div>
+<footer class="pt-1 pl-3 pr-3">
+    <div class="row">
+        <div class="col-4">
+            <a href="https://goo.gl/forms/gUQufG0cYyOafwGz2" class="btn btn-block btn-light"><i class="material-icons">add</i></a>
+        </div>
+        <div class="col-4">
+            <button onclick="" class="btn btn-block btn-light hidden"><i class="material-icons">edit</i></button>
+        </div>
+        <div class="col-4">
+            <button onclick="location.reload()" class="btn btn-block btn-light"><i class="material-icons">refresh</i></button>
+        </div>
+    </div>
+</footer>
 </body>
 <script src="cordova.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
 <script src="assets/dist/index.js"></script>
 <script>Project.init();</script>
 </html>

@@ -4,8 +4,17 @@ const init = function () {
     Project.navigate(Project.getCookie('page') || 'dashboard');
 };
 const load = function () {
-    document.addEventListener("deviceready", function() {
-       Project.Maps.init();
+    Project.Firebase.init();
+
+    document.addEventListener("deviceready", function () {
+        Project.Maps.init();
+    });
+    $("#sidebar").simplerSidebar({
+        align: "left",
+        selectors: {
+            trigger: ".toggle-sidebar",
+            quitter: "close-sidebar"
+        }
     });
 };
 

@@ -1,0 +1,21 @@
+body > footer {
+  height: 50px;
+}
+
+body > header {
+  height: 50px;
+}
+
+.hidden {
+  display: none;
+}
+
+.sidebar-wrapper {
+  position: relative;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar-wrapper {
+  background-color: white;
+}

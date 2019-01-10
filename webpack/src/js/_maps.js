@@ -35,21 +35,34 @@ Project.Maps = {
         // Define a div tag with id="map_canvas"
         var mapDiv = $("#map_canvas").get()[0];
 
-        var options = {
+        // Initialize the map plugin
+        var map = plugin.google.maps.Map.getMap(mapDiv, {
             camera: {
                 target: target,
                 zoom: zoom
             }
-        };
-
-        // Initialize the map plugin
-        var map = plugin.google.maps.Map.getMap(mapDiv, options);
+        });
 
         // The MAP_READY event notifies the native map view is fully ready to use.
         map.one(plugin.google.maps.event.MAP_READY, this.onMapInit);
+
+        plugin.google.maps.LocationService.getMyLocation({
+            enableHighAccuracy: true // use GPS as much as possible
+        }, function (location) {
+            Project.Maps.addMarker(map, location.latLng);
+            map.moveCamera({
+                target: location.latLng
+            });
+        });
     },
     onMapInit: function (map) {
         Project.Maps.addMarkers(map);
+    },
+    addMarker: function (map, position) {
+        map.addMarker({
+            position: position,
+            title: "Estas Aquí"
+        })
     },
     addMarkers: async function (map) {
         var data = await Project.Maps.getMarkers();
@@ -62,11 +75,13 @@ Project.Maps = {
         let markers = [];
         const response = (await Project.request('maps/getData')).response;
         $.each(response.data, function (i, marker) {
+            var status = {1: "active", 0: 'inactive'}[marker.active];
+            $("#markers-list").append(`<li class="list-group-item ${status}">${marker.id} - ${marker.name}</li>`);
             markers.push({
                 icon: icon[marker.active],
-                snippet: {1: "SI hay", 0: 'NO hay'}[marker.active],
                 position: {lat: marker.position.lat, lng: marker.position.lng},
-                title: marker.company
+                title: [marker.id, marker.name].join(" - "),
+                snippet: [marker.company, {1: "SI hay", 0: 'NO hay'}[marker.active]].join(" - ")
             });
         });
         return markers;
