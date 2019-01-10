@@ -16,5 +16,18 @@ body > header {
   overflow: auto;
 }
 
-.sidebar-wrapper {background-color: white;
+.sidebar-wrapper {
+  background-color: white;
+}
+
+.list-group-item.active {
+  background-color: #558b2f;
+  border-color: #558b2f;
+  color: white;
+}
+
+.list-group-item.inactive {
+  background-color: #a52714;
+  border-color: #a52714;
+  color: white;
 }

@@ -75,6 +75,8 @@ Project.Maps = {
         let markers = [];
         const response = (await Project.request('maps/getData')).response;
         $.each(response.data, function (i, marker) {
+            var status = {1: "active", 0: 'inactive'}[marker.active];
+            $("#markers-list").append(`<li class="list-group-item ${status}">${marker.id} - ${marker.name}</li>`);
             markers.push({
                 icon: icon[marker.active],
                 position: {lat: marker.position.lat, lng: marker.position.lng},
