@@ -93,7 +93,6 @@ ${options.updated}<br>
         });
     },
     showEditModal: function (options) {
-        console.log(options);
         $("#edit-modal .modal-title").html(options.name);
         $("#edit-modal form [name=id]").val(options.id);
         $("#edit-modal form [name=responsable]").val(localStorage.getItem('gas_name'));
