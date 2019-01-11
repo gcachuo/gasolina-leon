@@ -81,7 +81,8 @@ Compañia: ${options.company}<br>
 Fila: ${options.size}<br>
 Tiempo de Espera: ${options.time}<br>
 Actualizado por: ${options.rep}<br>
-<button data-id="${options.id}" class="btn btn-sm btn-success"><i class="material-icons">edit</i></button>
+${options.updated}<br>
+<button onclick='Project.Maps.showEditModal(` + JSON.stringify(options) + `)' class="btn btn-sm btn-success"><i class="material-icons">edit</i></button>
 </div>
 `;
             htmlInfoWindow.setContent(html);
@@ -90,6 +91,14 @@ Actualizado por: ${options.rep}<br>
             });
             return marker;
         });
+    },
+    showEditModal: function (options) {
+        console.log(options);
+        $("#edit-modal .modal-title").html(options.name);
+        $("#edit-modal form [name=id]").val(options.id);
+        $("#edit-modal form [name=responsable]").val(localStorage.getItem('gas_name'));
+        $(`#edit-modal form [name=status][value='${options.active}']`).prop('checked', 1);
+        $("#edit-modal").modal('show');
     },
     getMarkers: async function () {
         let markers = [];
@@ -111,6 +120,8 @@ Actualizado por: ${options.rep}<br>
                 size: marker.size,
                 time: marker.time,
                 rep: marker.rep,
+                updated: marker.updated,
+                active: marker.active,
                 icon: icon[marker.active],
                 position: {lat: marker.position.lat, lng: marker.position.lng}
             });
