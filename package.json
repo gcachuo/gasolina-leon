@@ -15,7 +15,8 @@
       "cordova-plugin-googlemaps": {
         "API_KEY_FOR_ANDROID": "AIzaSyD4PXcR06qMI_9Xcf81WI1UVp_3IoT_8-U",
         "API_KEY_FOR_IOS": "AIzaSyD4PXcR06qMI_9Xcf81WI1UVp_3IoT_8-U"
-      }
+      },
+      "cordova-support-google-services": {}
     }
   },
   "dependencies": {
@@ -26,6 +27,7 @@
     "cordova-plugin-whitelist": "^1.3.3",
     "express": "^4.16.4",
     "path": "^0.12.7",
-    "phonegap-plugin-multidex": "^1.0.0"
+    "phonegap-plugin-multidex": "^1.0.0",
+    "cordova-support-google-services": "~1.1.0"
   }
 }

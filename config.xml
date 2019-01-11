@@ -16,4 +16,5 @@
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyD4PXcR06qMI_9Xcf81WI1UVp_3IoT_8-U" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyD4PXcR06qMI_9Xcf81WI1UVp_3IoT_8-U" />
     </plugin>
+    <plugin name="cordova-support-google-services" spec="~1.1.0" />
 </widget>

@@ -73,12 +73,28 @@ Project.Maps = {
         var data = await Project.Maps.getMarkers();
         // Add markers
         data.map(function (options) {
-            return map.addMarker(options);
+            var marker = map.addMarker(options);
+            var htmlInfoWindow = new plugin.google.maps.HtmlInfoWindow();
+
+            var html = `<div style="white-space: nowrap" class="gasolinera">${options.id} - ${options.name}<br>
+Compañia: ${options.company}<br>
+Fila: ${options.size}<br>
+Tiempo de Espera: ${options.time}<br>
+Actualizado por: ${options.rep}<br>
+<button data-id="${options.id}" class="btn btn-sm btn-success"><i class="material-icons">edit</i></button>
+</div>
+`;
+            htmlInfoWindow.setContent(html);
+            marker.on(plugin.google.maps.event.MARKER_CLICK, function () {
+                htmlInfoWindow.open(marker);
+            });
+            return marker;
         });
     },
     getMarkers: async function () {
         let markers = [];
         const response = (await Project.request('maps/getData')).response;
+        console.log(response);
         if (JSON.parse(localStorage.getItem('filters') || '{}').actives) {
             $("#chk-only-active").prop('checked', true);
         }
@@ -89,10 +105,14 @@ Project.Maps = {
                 return true;
             }
             markers.push({
+                id: marker.id,
+                name: marker.name,
+                company: marker.company,
+                size: marker.size,
+                time: marker.time,
+                rep: marker.rep,
                 icon: icon[marker.active],
-                position: {lat: marker.position.lat, lng: marker.position.lng},
-                title: [marker.id, marker.name].join(" - "),
-                snippet: [marker.company, {1: "SI hay", 0: 'NO hay'}[marker.active]].join(" - ")
+                position: {lat: marker.position.lat, lng: marker.position.lng}
             });
         });
         return markers;
