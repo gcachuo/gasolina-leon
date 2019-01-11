@@ -77,12 +77,14 @@ Project.Maps = {
         $.each(response.data, function (i, marker) {
             var status = {1: "active", 0: 'inactive'}[marker.active];
             $("#markers-list").append(`<li class="list-group-item ${status}">${marker.id} - ${marker.name}</li>`);
-            markers.push({
-                icon: icon[marker.active],
-                position: {lat: marker.position.lat, lng: marker.position.lng},
-                title: [marker.id, marker.name].join(" - "),
-                snippet: [marker.company, {1: "SI hay", 0: 'NO hay'}[marker.active]].join(" - ")
-            });
+            if (marker.active) {
+                markers.push({
+                    icon: icon[marker.active],
+                    position: {lat: marker.position.lat, lng: marker.position.lng},
+                    title: [marker.id, marker.name].join(" - "),
+                    snippet: [marker.company, {1: "SI hay", 0: 'NO hay'}[marker.active]].join(" - ")
+                });
+            }
         });
         return markers;
     }
