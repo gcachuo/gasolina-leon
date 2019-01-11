@@ -54,6 +54,11 @@ Project.Maps = {
                 target: location.latLng
             });
         });
+
+        $("#chk-only-active").on('click', function () {
+            localStorage.setItem('filters', JSON.stringify({actives: $(this).prop('checked')}));
+            location.reload();
+        });
     },
     onMapInit: function (map) {
         Project.Maps.addMarkers(map);
@@ -74,17 +79,21 @@ Project.Maps = {
     getMarkers: async function () {
         let markers = [];
         const response = (await Project.request('maps/getData')).response;
+        if (JSON.parse(localStorage.getItem('filters') || '{}').actives) {
+            $("#chk-only-active").prop('checked', true);
+        }
         $.each(response.data, function (i, marker) {
             var status = {1: "active", 0: 'inactive'}[marker.active];
             $("#markers-list").append(`<li class="list-group-item ${status}">${marker.id} - ${marker.name}</li>`);
-            if (marker.active) {
-                markers.push({
-                    icon: icon[marker.active],
-                    position: {lat: marker.position.lat, lng: marker.position.lng},
-                    title: [marker.id, marker.name].join(" - "),
-                    snippet: [marker.company, {1: "SI hay", 0: 'NO hay'}[marker.active]].join(" - ")
-                });
+            if (JSON.parse(localStorage.getItem('filters') || '{}').actives && marker.active == 0) {
+                return true;
             }
+            markers.push({
+                icon: icon[marker.active],
+                position: {lat: marker.position.lat, lng: marker.position.lng},
+                title: [marker.id, marker.name].join(" - "),
+                snippet: [marker.company, {1: "SI hay", 0: 'NO hay'}[marker.active]].join(" - ")
+            });
         });
         return markers;
     }
