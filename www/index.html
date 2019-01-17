@@ -10,7 +10,7 @@
 </head>
 <body>
 <header class="navbar">
-    <button class="toggle-sidebar btn btn-toolbar btn-light"><i class="material-icons">menu</i></button>
+    <button class="toggle-sidebar btn btn-toolbar"><i class="material-icons">menu</i></button>
     <span>Gasolina 2019</span>
 </header>
 <div id="sidebar">
@@ -25,14 +25,23 @@
 </div>
 <footer class="pt-1 pl-3 pr-3">
     <div class="row">
-        <div class="col-4">
-            <a href="https://goo.gl/forms/gUQufG0cYyOafwGz2" class="btn btn-block btn-light"><i class="material-icons">add</i></a>
+        <div class="col-3">
+            <div class="row">
+                <div class="col-6">
+                    <input type="checkbox" class="form-check form-control" id="chk-only-active">
+                </div>
+                <label><img src="assets/dist/img/icon-station-active.png" alt="" style="width: 30px"></label>
+            </div>
         </div>
-        <div class="col-4">
-            <button onclick="" class="btn btn-block btn-light hidden"><i class="material-icons">edit</i></button>
+        <div class="col-3">
+            <a href="https://goo.gl/forms/gUQufG0cYyOafwGz2" class="btn btn-block btn-outline-success"><i class="material-icons">add</i></a>
         </div>
-        <div class="col-4">
-            <button onclick="location.reload()" class="btn btn-block btn-light"><i class="material-icons">refresh</i></button>
+        <div class="col-3">
+            <button onclick="" class="btn btn-block btn-outline-success hidden"><i class="material-icons">edit</i></button>
+        </div>
+        <div class="col-3">
+            <button onclick="location.reload()" class="btn btn-block btn-outline-success"><i class="material-icons">refresh</i>
+            </button>
         </div>
     </div>
 </footer>

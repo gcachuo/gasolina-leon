@@ -4,8 +4,6 @@ const init = function () {
     Project.navigate(Project.getCookie('page') || 'dashboard');
 };
 const load = function () {
-    Project.Firebase.init();
-
     document.addEventListener("deviceready", function () {
         Project.Maps.init();
     });
@@ -30,6 +28,7 @@ const Project = {
                 if (typeof data.response === 'string') {
                     alert(data.response);
                 }
+                $(".modal").modal('hide');
                 Project.navigate($this.data('redirect'), data);
             });
         });

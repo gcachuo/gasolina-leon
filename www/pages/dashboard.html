@@ -1,3 +1,56 @@
 <div class="parent-map">
     <div id="map_canvas" class="map"></div>
 </div>
+<div id="edit-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form data-action="maps/changeStatus" data-redirect="dashboard" class="form-horizontal">
+                <div class="modal-body">
+                    <input type="hidden" value="" name="id">
+                    <div class="form-group">
+                        <input required type="text" class="form-control" name="responsable" placeholder="Tu Nombre">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input id="chk-si" class="form-check-input" type="radio" value="1" name="status">
+                            <label for="chk-si" class="form-check-label">Si Hay</label>
+                        </div>
+                        <div class="form-check">
+                            <input id="chk-no" class="form-check-input" type="radio" value="0" name="status">
+                            <label for="chk-no" class="form-check-label">No Hay</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Tamaño de la fila</label>
+                        <select name="fila" class="form-control">
+                            <option value="0">No lo sé</option>
+                            <option value="1">Pequeña</option>
+                            <option value="2">Mediana</option>
+                            <option value="3">Grande</option>
+                            <option value="4">Excesiva</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tiempo de espera</label>
+                        <select name="tiempo" class="form-control">
+                            <option value="0">No lo sé</option>
+                            <option value="1">Corto</option>
+                            <option value="2">Regular</option>
+                            <option value="3">Largo</option>
+                            <option value="4">Eterno</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="localStorage.setItem('gas_name',$('[name=responsable]').val())" type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

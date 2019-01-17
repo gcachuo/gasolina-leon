@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.cachu.gasolinaleon" version="0.2.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.cachu.gasolinaleon" version="0.3.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
     <name>Gasolina 2019</name>
     <content src="index.html" />
     <access origin="*" />
@@ -14,6 +14,7 @@
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyD4PXcR06qMI_9Xcf81WI1UVp_3IoT_8-U" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyD4PXcR06qMI_9Xcf81WI1UVp_3IoT_8-U" />
     </plugin>
+    <plugin name="cordova-support-google-services" spec="~1.1.0" />
     <engine name="browser" spec="^5.0.4" />
     <engine name="android" spec="^7.1.4" />
 </widget>
