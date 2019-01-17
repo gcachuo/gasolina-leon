@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: gasolina-leon.herokuapp.com
+Token: 81a7bc72f65111a13ad756d0b2e384029cdf056651115ab21e70089695574fd8
